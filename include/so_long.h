@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 09:04:43 by amanjon-          #+#    #+#             */
-/*   Updated: 2023/07/05 15:53:32 by amanjon-         ###   ########.fr       */
+/*   Updated: 2023/07/07 14:15:59 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@
 # include "../libft/Gnl/include/get_next_line.h"
 
 /* ---- KEYS ---- */
-# define CLOSE  17 // close red cross
+# define CLOSE  17 // close red cross -MASK-
 
 # define KEY_ESC		53
 # define KEY_W			13
@@ -64,6 +64,13 @@ typedef struct s_game
 	void	*mlx;
 	void	*win;
 	void	*img;
+	void	*img2;
+	void	*img3;
+	void	*img4;
+	void	*img5;
+	void	*img6;
+	void	*img7;
+	void	*img8;
 	t_map	map;
 	int 	keycode;
 }	t_game;
@@ -74,6 +81,7 @@ int		main(int argc, char **argv);
 int		ft_close_red_cross (t_game *game);
 /* int		key_hook(int keycode, t_game *game); */
 void	key_press(int keycode, t_game *game);
+char	*ft_strdup_no_new_line(char	*s1);
 
 
 
