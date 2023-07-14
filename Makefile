@@ -5,7 +5,7 @@ MLX = ./mlx/libmlx.a
 MLX_FLAGS = -lmlx -framework OpenGL -framework AppKit
 DEBUG = -g3 -fsanitize=address
 RM = rm -f
-SRC = main.c
+SRC = main.c map.c manage_map.c utils.c
 
 LIBFT_DIR = libft/
 LIBFT = $(LIBFT_DIR)libft.a
@@ -32,13 +32,12 @@ $(OBJ_DIR)%.o:$(SRC_DIR)%.c
 
 ##########basic library compiled##########
 $(NAME): $(OBJ) $(LIBFT)
-		$(CC) $(CFLAGS) $(OBJ) $(MLX_FLAGS) -o $(NAME)
+		$(CC) $(CFLAGS)  $(OBJ) $(LIBFT) $(MLX_FLAGS) -o $(NAME)
 
 ##########all .o files removed##########
 clean:
 		$(RM) $(OBJ)
 		make clean -C libft
-		make clean -C mlx
 		rm -rf $(OBJ_DIR)
 
 ##########library .a file removed##########

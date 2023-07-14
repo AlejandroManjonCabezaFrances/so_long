@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:30:40 by amanjon-          #+#    #+#             */
-/*   Updated: 2023/05/12 08:44:16 by amanjon-         ###   ########.fr       */
+/*   Updated: 2023/07/11 12:31:10 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*read_and_copy_buf(char *static_line, int fd)
 	buf = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (buf == NULL)
 		return (NULL);
-	while (!ft_strchr(static_line, '\n') && bytes != 0)
+	while (!ft_strchr_gnl_bonus(static_line, '\n') && bytes != 0)
 	{
 		bytes = read(fd, buf, BUFFER_SIZE);
 		if (bytes == -1)
@@ -70,8 +70,8 @@ char	*trim_stash(char *static_line)
 	char	*stash;
 	int		destsize;
 
-	destsize = (ft_strlen(ft_strchr(static_line, '\n')) + 1);
-	if (!ft_strchr(static_line, '\n'))
+	destsize = (ft_strlen_gnl_bonus(ft_strchr_gnl_bonus(static_line, '\n')) + 1);
+	if (!ft_strchr_gnl_bonus(static_line, '\n'))
 	{
 		free(static_line);
 		return (NULL);
@@ -79,7 +79,7 @@ char	*trim_stash(char *static_line)
 	stash = malloc(sizeof(char) * destsize);
 	if (stash == NULL)
 		return (NULL);
-	ft_strlcpy(stash, ft_strchr(static_line, '\n'), destsize);
+	ft_strlcpy(stash, ft_strchr_gnl_bonus(static_line, '\n'), destsize);
 	free(static_line);
 	return (stash);
 }

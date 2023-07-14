@@ -10,7 +10,7 @@ ft_bzero.c ft_strchr.c ft_strrchr.c ft_atoi.c ft_memchr.c ft_memcmp.c ft_calloc.
 ft_putstr_fd.c ft_putendl_fd.c ft_strjoin.c ft_strmapi.c ft_striteri.c ft_putnbr_fd.c ft_substr.c ft_strtrim.c\
 ft_itoa.c ft_split.c
 FT_PRINTF = ft_hexad_len.c ft_itoa_unsg.c ft_itoa.c ft_print_hexad_x.c ft_print_pointer.c ft_printf.c ft_putchar.c ft_putstr.c ft_putstr_free.c
-GNL =  get_next_line.c get_next_line_utils_bonus.c get_next_line_utils.c get_next_line_bonus.c
+GNL =  get_next_line.c  get_next_line_utils.c
 
 SRC1_DIR	=	./libft/src/
 SRC2_DIR	=	./ft_printf/src/

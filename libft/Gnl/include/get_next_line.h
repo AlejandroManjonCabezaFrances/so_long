@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 07:25:54 by amanjon-          #+#    #+#             */
-/*   Updated: 2023/05/12 08:43:46 by amanjon-         ###   ########.fr       */
+/*   Updated: 2023/07/11 12:14:12 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@
 
 char	*get_next_line(int fd);
 char	*ft_strjoin_gnl(char *s1, char *s2);
-size_t	ft_strlen(const char *str);
-char	*ft_strchr(const char *s, int c);
+size_t	ft_strlen_gnl(const char *str);
+char	*ft_strchr_gnl(const char *s, int c);
 size_t	ft_strlcpy(char *dest, const char *src, size_t destsize);
 
 #endif

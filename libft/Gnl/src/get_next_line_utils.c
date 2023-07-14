@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 07:25:50 by amanjon-          #+#    #+#             */
-/*   Updated: 2023/05/12 08:44:46 by amanjon-         ###   ########.fr       */
+/*   Updated: 2023/07/11 12:14:02 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ char	*ft_strjoin_gnl(char *s1, char *s2)
 		s1 = malloc(sizeof(char) * 1);
 		s1[0] = '\0';
 	}
-	ptr = malloc(sizeof(char) * (ft_strlen((char *)s1)
-				+ft_strlen((char *)s2)) + 1);
+	ptr = malloc(sizeof(char) * (ft_strlen_gnl((char *)s1)
+				+ft_strlen_gnl((char *)s2)) + 1);
 	if (ptr == NULL)
 		return (NULL);
 	i = 0;
@@ -39,7 +39,7 @@ char	*ft_strjoin_gnl(char *s1, char *s2)
 	return (ptr);
 }
 
-size_t	ft_strlen(const char *str)
+size_t	ft_strlen_gnl(const char *str)
 {
 	int	i;
 
@@ -53,7 +53,7 @@ size_t	ft_strlen(const char *str)
 	return (i);
 }
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strchr_gnl(const char *s, int c)
 {
 	int		i;
 	char	*a;
@@ -78,7 +78,7 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t destsize)
 	char	*a;
 
 	i = 0;
-	j = ft_strlen(src);
+	j = ft_strlen_gnl(src);
 	a = (char *)src;
 	if (destsize == 0)
 		return (j);

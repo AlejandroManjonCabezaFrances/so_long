@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 09:04:43 by amanjon-          #+#    #+#             */
-/*   Updated: 2023/07/07 14:15:59 by amanjon-         ###   ########.fr       */
+/*   Updated: 2023/07/14 14:26:46 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,34 +55,39 @@
 /* ----- STRUCT ----- */
 typedef struct s_map
 {
-    int height;
-    int weidth;
+	char	**create_maps;
+    int		height;
+    int		width;
+	char	*str_line;
+	void	*door;
+	void	*floor;
+	void	*player_down;
+	void	*player_left;
+	void	*player_right;
+	void	*player_up;
+	void	*wall;
+	void	*weapon;
 }   t_map;
 
 typedef struct s_game 
 {
 	void	*mlx;
 	void	*win;
-	void	*img;
-	void	*img2;
-	void	*img3;
-	void	*img4;
-	void	*img5;
-	void	*img6;
-	void	*img7;
-	void	*img8;
 	t_map	map;
 	int 	keycode;
 }	t_game;
-
 
 /* -------- FUNCTIONS -------- */
 int		main(int argc, char **argv);
 int		ft_close_red_cross (t_game *game);
 /* int		key_hook(int keycode, t_game *game); */
-void	key_press(int keycode, t_game *game);
+/* void	key_press(int keycode, t_game *game); */
 char	*ft_strdup_no_new_line(char	*s1);
-
-
+char	*ft_strjoin_no_new_line(char *s1, char *s2);
+void	ft_read_map2(char *filename, t_game *game);
+int		ft_cpy_map2(t_game *game);
+void	ft_create_images2(t_game *game);
+void	ft_put_images2(t_game *game);
+void	ft_read_map(char *filename, t_game *game);
 
 #endif
