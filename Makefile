@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/07/19 12:50:26 by amanjon-          #+#    #+#              #
+#    Updated: 2023/07/25 07:23:35 by amanjon-         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = so_long
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror  -I /libft/ft_printf/include -I /libft/gnl/include -I /libft/Libft/include
@@ -5,7 +17,7 @@ MLX = ./mlx/libmlx.a
 MLX_FLAGS = -lmlx -framework OpenGL -framework AppKit
 DEBUG = -g3 -fsanitize=address
 RM = rm -f
-SRC = main.c map.c manage_map.c utils.c
+SRC = main.c map.c utils.c check_error.c key_hooks.c move_player.c
 
 LIBFT_DIR = libft/
 LIBFT = $(LIBFT_DIR)libft.a
@@ -32,7 +44,7 @@ $(OBJ_DIR)%.o:$(SRC_DIR)%.c
 
 ##########basic library compiled##########
 $(NAME): $(OBJ) $(LIBFT)
-		$(CC) $(CFLAGS)  $(OBJ) $(LIBFT) $(MLX_FLAGS) -o $(NAME)
+		$(CC) $(CFLAGS) $(DEBUG) $(OBJ) $(LIBFT) $(MLX_FLAGS) -o $(NAME)
 
 ##########all .o files removed##########
 clean:

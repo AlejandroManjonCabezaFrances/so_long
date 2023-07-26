@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 11:45:47 by amanjon-          #+#    #+#             */
-/*   Updated: 2023/05/12 07:33:12 by amanjon-         ###   ########.fr       */
+/*   Updated: 2023/07/19 17:02:30 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,13 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	return (NULL);
 }
 
-/*int	main(void)
+/* int	main(void)
 {
 	char	haystack [] = "me gusta programar";
-	char	needle [] = "pro";
+	char	needle [] = "progra";
 
-	printf("%s", ft_strnstr(haystack, needle, 13));
+	printf("%s", ft_strnstr(haystack, needle, 25));
 	return(0);
-}*/
+} */
 //Devuelve programar, siempre que len sea mayor que pro. si no NULL.
 //se retorna la dirección del string

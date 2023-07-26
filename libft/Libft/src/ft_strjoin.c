@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 07:21:28 by amanjon-          #+#    #+#             */
-/*   Updated: 2023/07/10 12:01:04 by amanjon-         ###   ########.fr       */
+/*   Updated: 2023/07/14 16:51:38 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	i = 0;
 	while (s2[i] != '\0')
 	{
-		if(s2[i] == '\n')
-			break;
 		ptr[j] = s2[i];
 		j++;
 		i++;

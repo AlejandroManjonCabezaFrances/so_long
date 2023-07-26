@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 09:04:43 by amanjon-          #+#    #+#             */
-/*   Updated: 2023/07/14 14:26:46 by amanjon-         ###   ########.fr       */
+/*   Updated: 2023/07/26 14:54:08 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,11 @@
 # include "../libft/Gnl/include/get_next_line.h"
 
 /* ---- KEYS ---- */
-# define CLOSE  17 // close red cross -MASK-
+# define RESOLUTION_H	128
+# define RESOLUTION_W	128
+
+# define KEY_PRESS		2	// ft_key_press
+# define CLOSE_RED 		17	// close red cross -MASK-
 
 # define KEY_ESC		53
 # define KEY_W			13
@@ -43,8 +47,12 @@
 # define ARROW_LEFT		123  
 
 /* ---- MAP SYMBOLS ---- */
-# define PLAYER			'P'
-# define EXIT			'E'
+# define PLAYER_RIGHT	'P'
+# define PLAYER_LEFT	'L'
+# define PLAYER_UP		'U'
+# define PLAYER_DOWN	'D'
+# define PRE_EXIT		'E'
+# define EXIT			'S'
 # define COLLECTIBLE	'C'
 # define WALL			'1'
 # define ROAD			'0'
@@ -55,39 +63,68 @@
 /* ----- STRUCT ----- */
 typedef struct s_map
 {
-	char	**create_maps;
-    int		height;
-    int		width;
-	char	*str_line;
-	void	*door;
-	void	*floor;
-	void	*player_down;
-	void	*player_left;
-	void	*player_right;
-	void	*player_up;
-	void	*wall;
-	void	*weapon;
+	char		**create_maps;
+    int			height;
+    int			width;
+	int 		fire_count;
+	int			fire_total;
+	char		*str_line;
+	void		*exit_on;
+	void		*exit_off;
+	void		*floor;
+	void		*wall;
+	void		*collectible;
 }   t_map;
+
+typedef struct s_player
+{
+	void		*player_down;
+	void		*player_left;
+	void		*player_right;
+	void		*player_up;
+	int			steps;
+}	t_player;
 
 typedef struct s_game 
 {
-	void	*mlx;
-	void	*win;
-	t_map	map;
-	int 	keycode;
+	void		*mlx;
+	void		*win;
+	int 		keycode;
+	t_player	player;
+	t_map		map;
 }	t_game;
 
 /* -------- FUNCTIONS -------- */
+char	*ft_read_map(char *filename, t_game *game);
 int		main(int argc, char **argv);
 int		ft_close_red_cross (t_game *game);
+int		ft_key_press(int keycode, t_game *game);
+int		ft_check_walls(t_game *game);
+int		ft_check_map(t_game *game);
+int		ft_missing_some_ingredients(char ingredient);
+int		ft_check_input(int argc, char **argv);
+int		ft_check_walls_2(t_game *game);
 /* int		key_hook(int keycode, t_game *game); */
-/* void	key_press(int keycode, t_game *game); */
-char	*ft_strdup_no_new_line(char	*s1);
-char	*ft_strjoin_no_new_line(char *s1, char *s2);
-void	ft_read_map2(char *filename, t_game *game);
-int		ft_cpy_map2(t_game *game);
-void	ft_create_images2(t_game *game);
-void	ft_put_images2(t_game *game);
-void	ft_read_map(char *filename, t_game *game);
+void	ft_cpy_map(char *read_map, t_game *game);
+void	ft_create_images(t_game *game);
+void	ft_print_map(t_game *game);
+void	ft_error(char *sms);
+void	ft_free(char **str);
+void    ft_key_w(t_game *game);
+/* void    ft_key_s(t_game *game);
+void    ft_key_a(t_game *game);
+void    ft_key_d(t_game *game); */
+void    ft_player_up(t_game *game, int h, int w);
+void    ft_player_down(t_game *game, int h, int w);
+void    ft_player_left(t_game *game, int h, int w);
+void    ft_player_rigth(t_game *game, int h, int w);
+void	ft_open_exit(t_game *game);
+void    ft_key_s(t_game *game);
+void    ft_key_a(t_game *game);
+void    ft_key_d(t_game *game);
+void	ft_count_total_collectibles(t_game *game);
+void	ft_check_map_with_break_line_start(char *line);
+void	ft_check_map_with_break_line_end(t_game *game);
+void	ft_check_xpm(void *xpm_save);
 
 #endif
