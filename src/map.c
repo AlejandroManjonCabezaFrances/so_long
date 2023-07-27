@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 12:19:41 by amanjon-          #+#    #+#             */
-/*   Updated: 2023/07/26 15:38:38 by amanjon-         ###   ########.fr       */
+/*   Updated: 2023/07/27 14:55:19 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_check_map_with_break_line_start(char *line)
 		ft_error("Error: about break line start\n");
 }
 
-void	ft_check_map_with_break_line_end(t_game *game)
+void	ft_check_map_with_break_line_end_middle(t_game *game)
 {
 	int i;
 	size_t len;
@@ -60,7 +60,7 @@ char	*ft_read_map(char *filename, t_game *game)
 			game->map.str_line = ft_strjoin(game->map.str_line, line);
 		free(line);
 	}
-	ft_check_map_with_break_line_end(game);
+	ft_check_map_with_break_line_end_middle(game);
 	close (fd);
 	return (game->map.str_line);
 }
@@ -82,20 +82,8 @@ void	ft_cpy_map(char *read_map, t_game *game)
 		free(game->map.str_line);
 	}
 	/* --------check_walls/map-------- */
-	/* h = 0;
-	while (game->map.create_maps[h])
-	{
-		w = 0;
-		while (game->map.create_maps[h][w])
-		{
-			printf("%c", game->map.create_maps[h][w]);
-			w++;
-		}
-		printf("\n");
-		h++;
-	} */
 }
-
+	
 void	ft_check_xpm(void *xpm_save)
 {
 	if (!xpm_save)

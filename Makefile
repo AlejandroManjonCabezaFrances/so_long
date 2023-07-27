@@ -6,7 +6,7 @@
 #    By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/19 12:50:26 by amanjon-          #+#    #+#              #
-#    Updated: 2023/07/25 07:23:35 by amanjon-         ###   ########.fr        #
+#    Updated: 2023/07/27 16:38:08 by amanjon-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ MLX = ./mlx/libmlx.a
 MLX_FLAGS = -lmlx -framework OpenGL -framework AppKit
 DEBUG = -g3 -fsanitize=address
 RM = rm -f
-SRC = main.c map.c utils.c check_error.c key_hooks.c move_player.c
+SRC = main.c map.c utils.c check_error.c key_hooks.c move_player.c check_path.c
 
 LIBFT_DIR = libft/
 LIBFT = $(LIBFT_DIR)libft.a

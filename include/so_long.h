@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 09:04:43 by amanjon-          #+#    #+#             */
-/*   Updated: 2023/07/26 14:54:08 by amanjon-         ###   ########.fr       */
+/*   Updated: 2023/07/27 16:42:29 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@
 typedef struct s_map
 {
 	char		**create_maps;
+	char		**cpy_create_maps;
     int			height;
     int			width;
 	int 		fire_count;
@@ -104,16 +105,13 @@ int		ft_check_map(t_game *game);
 int		ft_missing_some_ingredients(char ingredient);
 int		ft_check_input(int argc, char **argv);
 int		ft_check_walls_2(t_game *game);
-/* int		key_hook(int keycode, t_game *game); */
+int		ft_check_path(t_game *game);
 void	ft_cpy_map(char *read_map, t_game *game);
 void	ft_create_images(t_game *game);
 void	ft_print_map(t_game *game);
 void	ft_error(char *sms);
 void	ft_free(char **str);
 void    ft_key_w(t_game *game);
-/* void    ft_key_s(t_game *game);
-void    ft_key_a(t_game *game);
-void    ft_key_d(t_game *game); */
 void    ft_player_up(t_game *game, int h, int w);
 void    ft_player_down(t_game *game, int h, int w);
 void    ft_player_left(t_game *game, int h, int w);
@@ -124,7 +122,9 @@ void    ft_key_a(t_game *game);
 void    ft_key_d(t_game *game);
 void	ft_count_total_collectibles(t_game *game);
 void	ft_check_map_with_break_line_start(char *line);
-void	ft_check_map_with_break_line_end(t_game *game);
+void	ft_check_map_with_break_line_end_middle(t_game *game);
 void	ft_check_xpm(void *xpm_save);
+void	ft_find_player(t_game *game);
+void	ft_cpy_map_for_floodfill(t_game *game);
 
 #endif

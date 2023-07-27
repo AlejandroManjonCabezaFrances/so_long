@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 09:02:10 by amanjon-          #+#    #+#             */
-/*   Updated: 2023/07/26 14:42:53 by amanjon-         ###   ########.fr       */
+/*   Updated: 2023/07/27 18:03:53 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,9 @@ int	main(int argc, char **argv)
 	ft_check_input(argc, argv);
 	read_map = ft_read_map(argv[1], &game);
 	ft_cpy_map(read_map, &game);
+	
+	ft_check_path(&game);
+	
 	game.mlx = mlx_init();
 	game.win = mlx_new_window(game.mlx, game.map.width * 128, game.map.height * 128, "0o---So ShoRt---o0");
 	ft_create_images(&game);
