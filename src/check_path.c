@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 15:16:06 by amanjon-          #+#    #+#             */
-/*   Updated: 2023/07/27 17:56:34 by amanjon-         ###   ########.fr       */
+/*   Updated: 2023/07/31 11:09:09 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,31 +87,18 @@ int ft_check_path(t_game *game)
 		w = 0;
 		while (w < game->map.width)
 		{	
-			if (game->map.cpy_create_maps[h][w] == 'C' 
-				|| game->map.cpy_create_maps[h][w] == 'E' 
-				|| (game->map.cpy_create_maps[h][w] == 'P' 
-				&& game->map.cpy_create_maps[h][w] != 'F' 
-				&& game->map.cpy_create_maps[h][w] != 'F' 
-				&& game->map.cpy_create_maps[h][w] != 'F' 
-				&& game->map.cpy_create_maps[h][w] != 'F'))
+			if (game->map.cpy_create_maps[h][w] == 'P' 
+				|| game->map.cpy_create_maps[h][w] == 'C' 
+				|| (game->map.cpy_create_maps[h][w] == 'E'
+				&& game->map.cpy_create_maps[h - 1][w] != 'F'
+				&& game->map.cpy_create_maps[h + 1][w] != 'F'
+				&& game->map.cpy_create_maps[h][w + 1] != 'F'
+				&& game->map.cpy_create_maps[h][w - 1] != 'F'))
 				ft_error("Error: Path invalid -floodfill-");
 			w++;	
 		}
 		h++;
 	}
 	h = 0;
-	
-	while (game->map.cpy_create_maps[h])
-	{
-		w = 0;
-		while (game->map.cpy_create_maps[h][w])
-		{
-			printf("%c", game->map.cpy_create_maps[h][w]);
-			w++;
-		}
-		printf("\n");
-		h++;
-	}
-	printf("\n\n\n");
 	return (1);
 }

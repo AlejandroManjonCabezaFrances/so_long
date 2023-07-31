@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 11:04:08 by amanjon-          #+#    #+#             */
-/*   Updated: 2023/07/26 12:01:50 by amanjon-         ###   ########.fr       */
+/*   Updated: 2023/07/31 15:30:47 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,8 @@ int	ft_check_walls(t_game *game)
 
 int	ft_missing_some_ingredients(char ingredient)
 {
-	if (ingredient != 'E' && ingredient != 'P' && ingredient != 'C' 
-		&& ingredient != '1' && ingredient != '0')
+	if (ingredient != '0' && ingredient != '1' && ingredient != 'P' && ingredient != 'C' 
+		&& ingredient != 'E' && ingredient != '\n')
 		return (0);
 	return (1);
 }
@@ -87,20 +87,21 @@ int	ft_check_map(t_game *game)
 	collectible = 0;
 	while (game->map.str_line[i])
 	{
-		if (ft_missing_some_ingredients(*game->map.str_line) == 0)
-			ft_error("Error: missing some ingredient in the map\n");
 		if (game->map.str_line[i] == 'E')
 			exit += 1;
-		if (game->map.str_line[i] == 'P')
+		else if (game->map.str_line[i] == 'P')
 			player += 1;
-		if (game->map.str_line[i] == 'C')
+		else if (game->map.str_line[i] == 'C')
 			collectible += 1;
+		else if (ft_missing_some_ingredients(game->map.str_line[i]) == 0)
+			ft_error("Error: missing some ingredient in the map\n");
     	i++;
 	}
-		if (exit != 1 ||player != 1 || collectible < 1)
+		if (exit != 1 || player != 1 || collectible < 1)
 			ft_error("Error: with the map 's ingredients\n");
+		/* game->map.fire_total = collectible; */
 		return (1);
-	}
+}
 
     int	ft_check_input(int argc, char **argv)
     {

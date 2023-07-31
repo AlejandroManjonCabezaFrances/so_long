@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 12:19:41 by amanjon-          #+#    #+#             */
-/*   Updated: 2023/07/27 14:55:19 by amanjon-         ###   ########.fr       */
+/*   Updated: 2023/07/31 15:43:44 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,12 +66,8 @@ char	*ft_read_map(char *filename, t_game *game)
 }
 
 void	ft_cpy_map(char *read_map, t_game *game)
-{
-	/* int h;
-	int w; */
-	
+{	
 	game->map.create_maps = ft_split(read_map, '\n');
-	/* --------check_walls/map-------- */
 	if (ft_check_walls(game) != 1)
 	{	
 		ft_free(game->map.create_maps);
@@ -81,7 +77,6 @@ void	ft_cpy_map(char *read_map, t_game *game)
 	{
 		free(game->map.str_line);
 	}
-	/* --------check_walls/map-------- */
 }
 	
 void	ft_check_xpm(void *xpm_save)
@@ -94,6 +89,9 @@ void	ft_create_images(t_game *game)
 {
 	int h;
 	int w;
+
+	/* h = 0;
+	w = 0; */
 	
 	game->map.exit_on = mlx_xpm_file_to_image(game->mlx, "./xpm/exiton128.xpm", &w, &h);
 		ft_check_xpm(game->map.exit_on);
