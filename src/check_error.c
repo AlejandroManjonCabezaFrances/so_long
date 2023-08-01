@@ -6,17 +6,27 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 11:04:08 by amanjon-          #+#    #+#             */
-/*   Updated: 2023/07/31 15:30:47 by amanjon-         ###   ########.fr       */
+/*   Updated: 2023/08/01 09:25:04 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../include/so_long.h"
+#include "../include/so_long.h"
+
+int	ft_check_input(int argc, char **argv)
+{
+	if (argc != 2)
+		ft_error("Error: numbers of arguments incorrect\n");
+	if ((ft_strnstr((argv[1] + ft_strlen(argv[1]) - 4),
+				".ber", ft_strlen(argv[1]))) == 0)
+		ft_error("Error: failed file .ber\n");
+	return (1);
+}
 
 int	ft_check_walls_2(t_game *game)
 {
-	int h;
-	int current_width;
-	int max_width;
+	int	h;
+	int	current_width;
+	int	max_width;
 
 	h = 0;
 	max_width = 0;
@@ -40,8 +50,8 @@ int	ft_check_walls_2(t_game *game)
 
 int	ft_check_walls(t_game *game)
 {
-	int h;
-	int w;
+	int	h;
+	int	w;
 
 	h = 0;
 	ft_check_walls_2(game);
@@ -49,7 +59,8 @@ int	ft_check_walls(t_game *game)
 	{
 		if (game->map.create_maps[h][0] != '1')
 			ft_error("Error: walls left\n");
-		if (game->map.create_maps[h][ft_strlen(game->map.create_maps[h]) - 1] != '1')
+		if (game->map.create_maps[h]
+			[ft_strlen(game->map.create_maps[h]) - 1] != '1')
 			ft_error("Error: walls right\n");
 		h++;
 	}
@@ -68,18 +79,18 @@ int	ft_check_walls(t_game *game)
 
 int	ft_missing_some_ingredients(char ingredient)
 {
-	if (ingredient != '0' && ingredient != '1' && ingredient != 'P' && ingredient != 'C' 
-		&& ingredient != 'E' && ingredient != '\n')
+	if (ingredient != '0' && ingredient != '1' && ingredient != 'P'
+		&& ingredient != 'C' && ingredient != 'E' && ingredient != '\n')
 		return (0);
 	return (1);
 }
 
 int	ft_check_map(t_game *game)
 {
-	int i;
-	int exit;
-	int player;
-	int collectible;
+	int	i;
+	int	exit;
+	int	player;
+	int	collectible;
 
 	i = 0;
 	exit = 0;
@@ -94,21 +105,10 @@ int	ft_check_map(t_game *game)
 		else if (game->map.str_line[i] == 'C')
 			collectible += 1;
 		else if (ft_missing_some_ingredients(game->map.str_line[i]) == 0)
-			ft_error("Error: missing some ingredient in the map\n");
-    	i++;
+			ft_error("Error: missing different ingredient in the map\n");
+		i++;
 	}
-		if (exit != 1 || player != 1 || collectible < 1)
-			ft_error("Error: with the map 's ingredients\n");
-		/* game->map.fire_total = collectible; */
-		return (1);
+	if (exit != 1 || player != 1 || collectible < 1)
+		ft_error("Error: with the map 's ingredients\n");
+	return (1);
 }
-
-    int	ft_check_input(int argc, char **argv)
-    {
-    	if (argc != 2)
-			ft_error("Error: numbers of arguments incorrect\n");
-		if ((ft_strnstr((argv[1] + ft_strlen(argv[1]) - 4), ".ber", ft_strlen(argv[1]))) == 0)
-			ft_error("Error: failed file .ber\n");
-		return (1);
-    }
-	

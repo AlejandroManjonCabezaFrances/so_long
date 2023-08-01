@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:30:40 by amanjon-          #+#    #+#             */
-/*   Updated: 2023/07/11 12:31:10 by amanjon-         ###   ########.fr       */
+/*   Updated: 2023/08/01 08:42:35 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,18 +68,18 @@ char	*save_line(char *static_line)
 char	*trim_stash(char *static_line)
 {
 	char	*stash;
-	int		destsize;
+	int		dest;
 
-	destsize = (ft_strlen_gnl_bonus(ft_strchr_gnl_bonus(static_line, '\n')) + 1);
+	dest = (ft_strlen_gnl_bonus(ft_strchr_gnl_bonus(static_line, '\n')) + 1);
 	if (!ft_strchr_gnl_bonus(static_line, '\n'))
 	{
 		free(static_line);
 		return (NULL);
 	}
-	stash = malloc(sizeof(char) * destsize);
+	stash = malloc(sizeof(char) * dest);
 	if (stash == NULL)
 		return (NULL);
-	ft_strlcpy(stash, ft_strchr_gnl_bonus(static_line, '\n'), destsize);
+	ft_strlcpy(stash, ft_strchr_gnl_bonus(static_line, '\n'), dest);
 	free(static_line);
 	return (stash);
 }

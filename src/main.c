@@ -6,13 +6,13 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 09:02:10 by amanjon-          #+#    #+#             */
-/*   Updated: 2023/07/31 15:31:44 by amanjon-         ###   ########.fr       */
+/*   Updated: 2023/08/01 09:20:18 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../include/so_long.h"
+#include "../include/so_long.h"
 
-int	ft_close_red_cross (t_game *game)
+int	ft_close_red_cross(t_game *game)
 {
 	mlx_destroy_window(game->mlx, game->win);
 	exit (0);
@@ -28,10 +28,15 @@ static	int	ft_loop_hook(t_game *game)
 	return (0);
 }
 
+void leaks(void)
+{
+	system("leaks -q so_long");
+}
+
 int	main(int argc, char **argv)
 {
 	t_game	game;
-	char *read_map;
+	char	*read_map;
 	
 	game.map.fire_count = 0;
 	ft_check_input(argc, argv);
@@ -39,14 +44,15 @@ int	main(int argc, char **argv)
 	ft_cpy_map(read_map, &game);
 	ft_check_path(&game);
 	game.mlx = mlx_init();
-	game.win = mlx_new_window(game.mlx, game.map.width * 128, game.map.height * 128, "0o---So ShoRt---o0");
+	game.win = mlx_new_window(game.mlx, game.map.width * 128,
+			game.map.height * 128, "Oo---So ShoRt---oO");
 	ft_create_images(&game);
 	ft_print_map(&game);
 	ft_count_total_collectibles(&game);
+	atexit(leaks);
 	mlx_hook(game.win, KEY_PRESS, 0, &ft_key_press, &game);
 	mlx_loop_hook(game.mlx, &ft_loop_hook, &game);
 	mlx_hook(game.win, CLOSE_RED, 0, &ft_close_red_cross, &game);
 	mlx_loop(game.mlx);
 	return (0);
 }
-
