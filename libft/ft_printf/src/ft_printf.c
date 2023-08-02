@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 09:47:11 by amanjon-          #+#    #+#             */
-/*   Updated: 2023/05/12 07:21:27 by amanjon-         ###   ########.fr       */
+/*   Updated: 2023/08/02 13:01:25 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	ft_operators(va_list args, int j, char *fmt)
 	i = 0;
 	x = 0;
 	if (fmt[i] == 'c')
-		x = ft_putchar(va_arg(args, int));
+		x = ft_putchar_ft_printf(va_arg(args, int));
 	else if (fmt[i] == 's')
 		x = ft_putstr(va_arg(args, char *));
 	else if (fmt[i] == 'i' || fmt[i] == 'd')
@@ -32,7 +32,7 @@ int	ft_operators(va_list args, int j, char *fmt)
 	else if (fmt[i] == 'p')
 		x = ft_pointer(va_arg(args, unsigned long));
 	else if (fmt[i] == '%')
-		x = ft_putchar('%');
+		x = ft_putchar_ft_printf('%');
 	x = x + j;
 	return (x);
 }
@@ -51,7 +51,7 @@ int	ft_printf(char	const *fmt, ...)
 	while (str[i])
 	{
 		if (str[i] != '%')
-			j = j + ft_putchar(str[i]);
+			j = j + ft_putchar_ft_printf(str[i]);
 		else if (str[i] == '%')
 		{
 			i++;

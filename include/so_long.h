@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 09:04:43 by amanjon-          #+#    #+#             */
-/*   Updated: 2023/08/01 08:59:58 by amanjon-         ###   ########.fr       */
+/*   Updated: 2023/08/02 07:52:07 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,16 +105,6 @@ typedef struct s_game
 }	t_game;
 
 /* -------- FUNCTIONS -------- */
-char	*ft_read_map(char *filename, t_game *game);
-int		ft_missing_some_ingredients(char ingredient);
-int		ft_key_press(int keycode, t_game *game);
-int		ft_check_input(int argc, char **argv);
-int		ft_close_red_cross(t_game *game);
-int		ft_check_walls_2(t_game *game);
-int		ft_check_walls(t_game *game);
-int		main(int argc, char **argv);
-int		ft_check_path(t_game *game);
-int		ft_check_map(t_game *game);
 void	ft_check_map_with_break_line_end_middle(t_game *game);
 void	ft_check_map_with_break_line_start(char *line);
 void	ft_player_rigth(t_game *game, int h, int w);
@@ -124,7 +114,6 @@ void	ft_count_total_collectibles(t_game *game);
 void	ft_print_map3(t_game *game, int h, int w);
 void	ft_cpy_map(char *read_map, t_game *game);
 void	ft_player_up(t_game *game, int h, int w);
-void	ft_cpy_map_for_floodfill(t_game *game);
 void	ft_create_images(t_game *game);
 void	ft_check_xpm(void *xpm_save);
 void	ft_find_player(t_game *game);
@@ -136,5 +125,18 @@ void	ft_key_a(t_game *game);
 void	ft_key_d(t_game *game);
 void	ft_error(char *sms);
 void	ft_free(char **str);
+char	*ft_read_map(char *filename, t_game *game);
+char	*ft_strjoin_so_long(char *s1, char *s2);
+int		ft_missing_some_ingredients(char ingredient);
+int		ft_key_press(int keycode, t_game *game);
+int		ft_cpy_map_for_floodfill(t_game *game);
+int		ft_check_input(int argc, char **argv);
+int		ft_close_red_cross(t_game *game);
+int		ft_check_walls_2(t_game *game);
+int		ft_check_walls(t_game *game);
+int		main(int argc, char **argv);
+int		ft_check_path(t_game *game);
+int		ft_check_map(t_game *game);
+int		ft_loop_hook(t_game *game);
 
 #endif

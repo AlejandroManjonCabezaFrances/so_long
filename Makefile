@@ -6,7 +6,7 @@
 #    By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/19 12:50:26 by amanjon-          #+#    #+#              #
-#    Updated: 2023/08/01 09:19:16 by amanjon-         ###   ########.fr        #
+#    Updated: 2023/08/02 11:07:03 by amanjon-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ OBJ_FILES = $(SRC:.c=.o)
 OBJ = $(addprefix $(OBJ_DIR), $(OBJ_FILES))
 
 ##########RULES##########
-all: $(OBJ_DIR) $(NAME)
+all: $(OBJ_DIR) $(LIBFT_DIR) $(NAME)
 
 $(LIBFT): $(LIBFT_DIR)
 		@make -C $(LIBFT_DIR)

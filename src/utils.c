@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 14:12:45 by amanjon-          #+#    #+#             */
-/*   Updated: 2023/07/31 17:30:30 by amanjon-         ###   ########.fr       */
+/*   Updated: 2023/08/02 07:51:12 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,4 +70,33 @@ void	ft_count_total_collectibles(t_game *game)
 		}
 		h++;
 	}
+}
+
+char	*ft_strjoin_so_long(char *s1, char *s2)
+{
+	char	*ptr;
+	int		i;
+	int		j;
+
+	ptr = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2)) + 1);
+	i = 0;
+	j = 0;
+	if (ptr == NULL)
+		return (NULL);
+	while (s1[i] != '\0')
+	{
+		ptr[j] = s1[i];
+		j++;
+		i++;
+	}
+	i = 0;
+	while (s2[i] != '\0')
+	{
+		ptr[j] = s2[i];
+		j++;
+		i++;
+	}
+	ptr[j] = '\0';
+	free(s1);
+	return (ptr);
 }

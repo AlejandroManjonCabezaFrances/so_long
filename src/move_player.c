@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 15:46:49 by amanjon-          #+#    #+#             */
-/*   Updated: 2023/08/01 09:26:05 by amanjon-         ###   ########.fr       */
+/*   Updated: 2023/08/02 13:02:15 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ void	ft_player_up(t_game *game, int h, int w)
 		&& game->map.fire_count == game->map.fire_total)
 	{
 		game->player.steps++;
-		printf("WINNER!! You have every collectibles. \n");
+		ft_printf("steps->%d\n", game->player.steps);
+		ft_printf("WINNER!! You have every collectibles.\n");
 		exit(0);
 	}
 	if (game->map.create_maps[h - 1][w] != '1'
@@ -29,6 +30,7 @@ void	ft_player_up(t_game *game, int h, int w)
 		if (game->map.fire_count == game->map.fire_total)
 			ft_open_exit(game);
 		game->player.steps++;
+		ft_printf("steps->%d\n", game->player.steps);
 		if (game->map.create_maps[h][w] == 'P'
 			|| game->map.create_maps[h][w] == 'L'
 			|| game->map.create_maps[h][w] == 'U'
@@ -45,7 +47,8 @@ void	ft_player_down(t_game *game, int h, int w)
 		&& game->map.fire_count == game->map.fire_total)
 	{
 		game->player.steps++;
-		printf("WINNER!! You have every collectibles. \n");
+		ft_printf("steps->%d\n", game->player.steps);
+		ft_printf("WINNER!! You have every collectibles.\n");
 		exit(0);
 	}
 	if (game->map.create_maps[h + 1][w] != '1'
@@ -56,6 +59,7 @@ void	ft_player_down(t_game *game, int h, int w)
 		if (game->map.fire_count == game->map.fire_total)
 			ft_open_exit(game);
 		game->player.steps++;
+		ft_printf("steps->%d\n", game->player.steps);
 		if (game->map.create_maps[h][w] == 'P'
 			|| game->map.create_maps[h][w] == 'L'
 			|| game->map.create_maps[h][w] == 'U'
@@ -72,7 +76,8 @@ void	ft_player_left(t_game *game, int h, int w)
 		&& game->map.fire_count == game->map.fire_total)
 	{
 		game->player.steps++;
-		printf("WINNER!! You have every collectibles. \n");
+		ft_printf("steps->%d\n", game->player.steps);
+		ft_printf("WINNER!! You have every collectibles.\n");
 		exit(0);
 	}
 	if (game->map.create_maps[h][w - 1] != '1'
@@ -83,6 +88,7 @@ void	ft_player_left(t_game *game, int h, int w)
 		if (game->map.fire_count == game->map.fire_total)
 			ft_open_exit(game);
 		game->player.steps++;
+		ft_printf("steps->%d\n", game->player.steps);
 		if (game->map.create_maps[h][w] == 'P'
 			|| game->map.create_maps[h][w] == 'L'
 			|| game->map.create_maps[h][w] == 'U'
@@ -99,7 +105,8 @@ void	ft_player_rigth(t_game *game, int h, int w)
 		&& game->map.fire_count == game->map.fire_total)
 	{
 		game->player.steps++;
-		printf("WINNER!! You have every collectibles. \n");
+		ft_printf("steps->%d\n", game->player.steps);
+		ft_printf("WINNER!! You have every collectibles.\n");
 		exit(0);
 	}
 	if (game->map.create_maps[h][w + 1] != '1'
@@ -110,6 +117,7 @@ void	ft_player_rigth(t_game *game, int h, int w)
 		if (game->map.fire_count == game->map.fire_total)
 			ft_open_exit(game);
 		game->player.steps++;
+		ft_printf("steps->%d\n", game->player.steps);
 		if (game->map.create_maps[h][w] == 'P'
 			|| game->map.create_maps[h][w] == 'L'
 			|| game->map.create_maps[h][w] == 'U'

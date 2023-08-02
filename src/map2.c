@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 16:47:25 by amanjon-          #+#    #+#             */
-/*   Updated: 2023/08/01 08:56:03 by amanjon-         ###   ########.fr       */
+/*   Updated: 2023/08/02 08:58:21 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	ft_print_map3(t_game *game, int h, int w)
 	else if (game->map.create_maps[h][w] == 'S')
 		mlx_put_image_to_window(game->mlx, game->win,
 			game->map.exit_on, w * RESOLUTION_W, h * RESOLUTION_H);
-	else if(game->map.create_maps[h][w] == '0')
+	else if (game->map.create_maps[h][w] == '0')
 		mlx_put_image_to_window(game->mlx, game->win,
 			game->map.floor, w * RESOLUTION_W, h * RESOLUTION_H);
 }

@@ -6,7 +6,7 @@
 #    By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/19 12:50:11 by amanjon-          #+#    #+#              #
-#    Updated: 2023/07/19 12:50:15 by amanjon-         ###   ########.fr        #
+#    Updated: 2023/08/02 12:53:34 by amanjon-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,8 +20,8 @@ LIBFT = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c ft_strl
 ft_strlen.c ft_strnstr.c ft_strncmp.c ft_tolower.c ft_toupper.c ft_memset.c ft_memcpy.c ft_memmove.c\
 ft_bzero.c ft_strchr.c ft_strrchr.c ft_atoi.c ft_memchr.c ft_memcmp.c ft_calloc.c ft_strdup.c ft_putchar_fd.c\
 ft_putstr_fd.c ft_putendl_fd.c ft_strjoin.c ft_strmapi.c ft_striteri.c ft_putnbr_fd.c ft_substr.c ft_strtrim.c\
-ft_itoa.c ft_split.c
-FT_PRINTF = ft_hexad_len.c ft_itoa_unsg.c ft_itoa.c ft_print_hexad_x.c ft_print_pointer.c ft_printf.c ft_putchar.c ft_putstr.c ft_putstr_free.c
+ft_itoa.c ft_split.c ft_putchar.c
+FT_PRINTF = ft_hexad_len.c ft_itoa_unsg.c ft_itoa.c ft_print_hexad_x.c ft_print_pointer.c ft_printf.c ft_putchar.c ft_putstr.c ft_putstr_free.c ft_putchar_ft_printf.c
 GNL =  get_next_line.c  get_next_line_utils.c
 
 SRC1_DIR	=	./libft/src/

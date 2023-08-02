@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 13:27:38 by amanjon-          #+#    #+#             */
-/*   Updated: 2023/05/11 16:04:23 by amanjon-         ###   ########.fr       */
+/*   Updated: 2023/08/02 12:52:08 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@
 int		ft_printf(char const *fmt, ...);
 int		ft_operators(va_list args, int j, char *fmt);
 int		ft_putstr(char *str);
-int		ft_putchar(char c);
+int		ft_putchar_ft_printf(char c);
 char	*ft_itoa(int n);
 char	*ft_itoa_unsg(unsigned int n);
-char	*ft_decimal_to_hexadecimal(int num_decimal, char *num_hexadecimal);
+/* char	*ft_decimal_to_hexadecimal(int num_decimal, char *num_hexadecimal); */
 int		ft_hexad_len(unsigned long n);
 void	ft_putpointer(unsigned long n);
 int		ft_pointer(unsigned long n);

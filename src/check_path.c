@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 15:16:06 by amanjon-          #+#    #+#             */
-/*   Updated: 2023/07/31 17:33:13 by amanjon-         ###   ########.fr       */
+/*   Updated: 2023/08/02 07:32:46 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	ft_find_player(t_game *game)
 	ft_floodfill(game, h, w);
 }
 
-void	ft_cpy_map_for_floodfill(t_game *game)
+int	ft_cpy_map_for_floodfill(t_game *game)
 {
 	int	h;
 	int	w;
@@ -56,13 +56,13 @@ void	ft_cpy_map_for_floodfill(t_game *game)
 	h = 0;
 	game->map.cpy_create_maps = malloc(sizeof(char *) * (game->map.height + 1));
 	if (!game->map.cpy_create_maps)
-		return ;
+		return (0);
 	while (h < game->map.height)
 	{
 		w = 0;
 		game->map.cpy_create_maps[h] = malloc(sizeof(char) * game->map.width);
 		if (!game->map.cpy_create_maps[h])
-			return ;
+			return (0);
 		while (w < game->map.width)
 		{
 			game->map.cpy_create_maps[h][w] = game->map.create_maps[h][w];
@@ -72,6 +72,7 @@ void	ft_cpy_map_for_floodfill(t_game *game)
 		h++;
 	}
 	game->map.cpy_create_maps[h] = 0;
+	return (1);
 }
 
 int	ft_check_path(t_game *game)

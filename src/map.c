@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 12:19:41 by amanjon-          #+#    #+#             */
-/*   Updated: 2023/08/01 09:24:09 by amanjon-         ###   ########.fr       */
+/*   Updated: 2023/08/02 07:51:47 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ char	*ft_read_map(char *filename, t_game *game)
 		game->map.height++;
 		line = get_next_line(fd);
 		if (line)
-			game->map.str_line = ft_strjoin(game->map.str_line, line);
+			game->map.str_line = ft_strjoin_so_long(game->map.str_line, line);
 		free(line);
 	}
 	ft_check_map_with_break_line_end_middle(game);
