@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 09:02:10 by amanjon-          #+#    #+#             */
-/*   Updated: 2023/08/02 11:35:25 by amanjon-         ###   ########.fr       */
+/*   Updated: 2023/08/04 09:49:44 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,6 @@ int	ft_loop_hook(t_game *game)
 	mlx_string_put(game->mlx, game->win, 30, 10, 0x000000, str);
 	free(str);
 	return (0);
-}
-
-void	leaks(void)
-{
-	system("leaks -q so_long");
 }
 
 int	main(int argc, char **argv)
@@ -54,7 +49,6 @@ int	main(int argc, char **argv)
 	ft_create_images(&game);
 	ft_print_map(&game);
 	ft_count_total_collectibles(&game);
-	atexit(leaks);
 	mlx_hook(game.win, KEY_PRESS, 0, &ft_key_press, &game);
 	mlx_loop_hook(game.mlx, &ft_loop_hook, &game);
 	mlx_hook(game.win, CLOSE_RED, 0, &ft_close_red_cross, &game);

@@ -6,7 +6,7 @@
 /*   By: amanjon- <amanjon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 16:47:25 by amanjon-          #+#    #+#             */
-/*   Updated: 2023/08/02 08:58:21 by amanjon-         ###   ########.fr       */
+/*   Updated: 2023/08/04 09:47:12 by amanjon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ void	ft_create_images(t_game *game)
 	int	h;
 	int	w;
 
+	h = 0;
+	w = 0;
 	game->map.exit_on = mlx_xpm_file_to_image(game->mlx, EXITON, &w, &h);
 	ft_check_xpm(game->map.exit_on);
 	game->map.exit_off = mlx_xpm_file_to_image(game->mlx, EXITOFF, &w, &h);
